@@ -1,0 +1,80 @@
+extends main
+
+block content
+  
+    header.header_area
+     .top_menu.row.m0
+         .container
+             .float-left
+                 ul.list.header_social
+                     li
+                         a(href='#')
+                         i.fa.fa-facebook
+                     li
+                         a(href='#')
+                         i.fa.fa-twitter
+                     li
+                         a(href='#')
+                         i.fa.fa-dribbble
+                     li
+                a(href='#')
+                i.fa.fa-behance
+    .main_menu
+        nav.navbar.navbar-expand-lg.navbar-light
+        .container
+            // Brand and toggle get grouped for better mobile display
+            a.navbar-brand.logo_h(href='index.html')
+            img(src='img/logo.png' alt='')
+            button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+            // Collect the nav links, forms, and other content for toggling
+            #navbarSupportedContent.collapse.navbar-collapse.offset
+            ul.nav.navbar-nav.menu_nav.ml-auto
+                li.nav-item.active
+                a.nav-link(href='index.html') Home
+                li.nav-item
+                a.nav-link(href='form.html') Register as User
+                li.nav-item
+                a.nav-link(href='NgoForm.html') Register as NGO
+                li.nav-item
+                a.nav-link(href='#aboutUs') About
+                li.nav-item(style='margin-right: 8pt;')
+                a.nav-link(href='contact.html') Contact &quot;&gt;Receiver
+    input(type='radio' name='role')
+    span.checkmark
+    .row.row-space
+    .col-2
+        .input-group
+        label.label Email
+        input.input--style-4(type='email' name='email' required='')
+    .col-2
+        .input-group
+        label.label Phone Number
+        input.input--style-4(type='number' name='phone' required='')
+    .input-group
+    label.label Address
+    .rs-select2.js-select-simple.select--no-search
+        .input-group
+        input.input--style-4(type='text' name='phone' required='')
+    .row.row-space
+    .col-2
+        .input-group
+        label.label Area
+        input.input--style-4(type='text' name='area' required='')
+    .col-2
+        .input-group
+        label.label Pin Code 
+        input.input--style-4(type='number' name='pcode' required='')
+    .input-group
+    label.label Manual verification will be done on given address.
+    .p-t-15
+    button.btn.btn--radius-2.btn--blue(type='submit') Submit
+    .card-footer
+    center
+        h4
+        a(href='loginform.html') Login
+    center
+        h4
+        a(href='index.html') Back to Home

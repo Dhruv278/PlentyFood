@@ -1,0 +1,76 @@
+extends main2
+
+block content               
+ header.header_area
+     .top_menu.row.m0
+         .container
+             .float-left
+                 ul.list.header_social
+                     li
+                         a(href="#")
+                             i.fa.fa-facebook
+                     li
+                         a(href="#")
+                             i.fa.fa-twitter
+                     li
+                         a(href="#")
+                             i.fa.fa-dribbble
+                     li
+                         a(href="#")
+                             i.fa.fa-behance
+     .main_menu
+         nav.navbar.navbar-expand-lg.navbar-light
+             .container
+                 a.navbar-brand.logo_h(href="index.html")
+                     img(src="/img/logo.png" alt="")
+                 button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+                     span.icon-bar
+                     span.icon-bar
+                     span.icon-bar
+            
+                 #navbarSupportedContent.collapse.navbar-collapse.offset
+                     ul.nav.navbar-nav.menu_nav.ml-auto
+                         li.nav-item
+                             a.nav-link(href="/") Home
+                         li.nav-item.active
+                             a.nav-link(href="post.html") window
+                         li.nav-item
+                             a.nav-link(href="index.html#aboutUs") About
+                         li.nav-item
+                             a.nav-link(href="/loginpage") Logout
+                         li.nav-item(style="margin-right: 8pt;")
+                             a.nav-link(href="contact.html") Contact
+                     ul.nav.navbar-nav.navbar-right
+                         form#pincodeForm
+                             input#pincodefeild(type="number" name="Pincode" placeholder="Pincode" style="margin-left: 3px; margin-right: 1px;")
+                             button#submitPincode(name="Search" placeholder="Search") Search &nbsp
+ div.container-fluid
+     div.container(id="dsc" style="margin-top: 1    5px;")
+         center
+             h3.mt-3( style="color: green;") PlentyFood Givin' happines
+             hr
+             .row
+                each food in Allfoods
+                    .col-md-4
+                        .card.shadow.mb-4(style="border: solid green;")
+                            .card-header.py-3(style="background-color: green;")
+                                h5.m-0.font-weight-bold(style="text-align: center; color: black;" data-target="#myModal" data-toggle="modal")=`Name:- ${food.name}`
+                            .card-body
+                                .row(style="text-align: center;")
+                                    .col-lg-12
+                                        h5=`Type :- ${food.food_type}`
+                                        h5=`Exipre In ${food.expire_time}`
+                                        h5=`Number of Persons${food.no_of_person}`
+                                        h5=`Area :- ${food.area}/${food.pincode}`
+                    #myModal.modal.fade(role="dialog")
+                        .modal-dialog
+                            .modal-content
+                                .modal-header
+                                    h4.modal-title=`Doner Name :${food.donor_id.first_name} ${food.donor_id.last_name} `
+                                        button.close(type="button" data-dismiss="modal") ×
+                                .modal-body
+                                    p=`Address : ${food.address}`
+                                    p(id=`${food.id}` style="display : none ;")
+                                .modal-footer
+                                    button.btn.btn-default(type="button" data-dismiss="modal") Close
+                                    a#token.btn.btn-primary(href="#" onClick=`getToken("${food.id}")`) Get Token

@@ -1,0 +1,73 @@
+extends main
+
+block content 
+     .page-wrapper.bg-gra-02.p-t-130.p-b-100.font-poppins
+         .wrapper.wrapper--w680
+              .card.card-4
+                 .card-body
+                     h2.title Registration Form
+                     form#registerform
+                         .row.row-space
+                             .col-2
+                                 .input-group
+                                     label.label first name
+                                     input#fisrtname.input--style-4(type='text' name='first_name' required='')
+                             .col-2
+                                 .input-group
+                                     label.label last name
+                                     input#lastname.input--style-4(type='text' name='last_name' required='')
+                         .row.row-space
+                             .col-2
+                                 .input-group
+                                     label.label password
+                                     input#password.input--style-4(type='password' name='pwd' required='')
+                                 .input-group
+                                     label.label COnfirm Password
+                                     input#confirm_password.input--style-4(type='password' name='pwd' required='')
+                             .col-2
+                                 .input-group
+                                     label.label Role
+                                     .p-t-10
+                                         label.radio-container.m-r-45 Doner
+                                             input#donor(type='radio' checked='checked' name='role' value='donor')
+                                             span.checkmark
+                                         label.radio-container Receiver
+                                             input#receiver(type='radio' name='role' value='receiver')
+                                             span.checkmark
+                         .row.row-space
+                             .col-2
+                                 .input-group
+                                     label.label Email
+                                     input#email.input--style-4(type='email' name='email' required='')
+                             .col-2
+                                 .input-group
+                                     label.label Phone Number
+                                     input#mibile_no.input--style-4(type='number' name='phone' required='')
+                         .input-group
+                             label.label Address
+                             .rs-select2.js-select-simple.select--no-search
+                                 .input-group
+                                     input#address.input--style-4(type='text' name='phone' required='')
+                         .row.row-space
+                             .col-2
+                                 .input-group
+                                     label.label Area
+                                     input#area.input--style-4(type='text' name='area' required='')
+                             .col-2
+                                 .input-group
+                                     label.label Pin Code 
+                                     input#pincode.input--style-4(type='number' name='pcode' required='')
+                         .input-group
+                             label.label Aadhar card number(Fill this to get Verified Badge)
+                             .rs-select2.js-select-simple.select--no-search
+                                 .input-group
+                                     input#adharcard.input--style-4(type='number' name='aadharid')
+                         .p-t-15
+                             button#submitbutton.btn.btn--radius-2.btn--blue(type='submit') Submit
+                 .card-footer
+                     center
+                         h4
+                             a(href='/loginpage') Login
+                     center
+                         h4
+                             a(href='/') Back to Home

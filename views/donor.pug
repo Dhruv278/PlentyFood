@@ -1,0 +1,138 @@
+extends main2
+
+block content
+ header.header_area
+     .top_menu.row.m0
+         .container
+             .float-left
+                 ul.list.header_social
+                     li
+                         a(href='#')
+                             i.fa.fa-facebook
+                     li
+                         a(href='#')
+                             i.fa.fa-twitter
+                     li
+                         a(href='#')
+                             i.fa.fa-dribbble
+                     li
+                         a(href='#')
+                             i.fa.fa-behance
+     .main_menu
+         nav.navbar.navbar-expand-lg.navbar-light
+             .container
+                 a.navbar-brand.logo_h(href='/')
+                     img(src='/img/logo.png' alt='')
+                 button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+                     span.icon-bar
+                     span.icon-bar
+                     span.icon-bar
+       
+                 #navbarSupportedContent.collapse.navbar-collapse.offset
+                     ul.nav.navbar-nav.menu_nav.ml-auto
+                         li.nav-item
+                             a.nav-link(href='/') Home
+                         li.nav-item.active
+                             a.nav-link(href='DonerDash.html') Dashboard
+                         li.nav-item
+                             a.nav-link(href='index.html#aboutUs') About
+                         li.nav-item(style='margin-right: 8pt;')
+                             a.nav-link(href='contact.html') Contact
+                     li.nav-item(style='margin-right: 8pt;')
+                         button(data-toggle='modal' data-target='#modalContactForm') Add Food
+ .container#foodpage
+     #modalContactForm.modal.fade(tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true')
+         .modal-dialog(role='document')
+             .modal-content
+                 .container(style='margin-top: a;')
+                     .row
+                         .col-lg-12.col-md-12.col-sm-12
+                             h2.text-primary.text-center Add Food
+                             form.form-horizontal(id=`${user.id}`)
+                                 .form-group
+                                     label.control-label.col-sm-4(for='foodName')  Food Name:
+                                         span.required(style='color: tomato;') *
+                                     .col-sm-10
+                                         input#foodName.form-control(type='email' placeholder='Enter food name' name='foodName' required='')
+                                 .form-group
+                                     label.control-label.col-sm-4(for='name') Address:
+                                         span.required(style='color: tomato;') *
+                                     .col-sm-10
+                                         input#Address.form-control(type='text' placeholder='Enter Address' name='Address' required='')
+                                 .form-group
+                                     label.control-label.col-sm-4(for='Area') Area:
+                                         span.required(style='color: tomato;') *
+                                     .col-sm-10
+                                         input#Area.form-control(type='text' placeholder='Enter Your Area' name='Area' required='')
+                                 .form-group
+                                     label.control-label.col-sm-4(for='Pincode') Pincode:
+                                         span.required(style='color: tomato;') *
+                                     .col-sm-10
+                                         input#Pincode.form-control(type='number' placeholder='Enter Pincode of Area' name='Pincode required')
+                                 .form-group
+                                     label.control-label.col-sm-4(for='Expire') Food Expire in Hours:
+                                         span.required(style='color: tomato;') *
+                                     .col-sm-10
+                                         input#expire_time.form-control(type='text')
+                                 input#veg(type='radio' name='optradio' checked='' style="margi")
+                                 label.radio-inline(style='margin-left: 1px;') Veg &nbsp&nbsp
+                                 input#non-veg(type='radio' name='optradio')
+                                 label.radio-inline(style='margin-left: 1px;')  Non Veg &nbsp&nbsp
+                                 .form-group
+                                     label.control-label.col-sm-12(for='Mobile') How many people can take your food?:
+                                         span.required(style='color: tomato;') *
+                                     .col-sm-10
+                                         input#People.form-control(type='number' placeholder='People ' name=' People' required='')
+                                 .form-group
+                                     .col-sm-offset-2.col-sm-10
+                                         button#submit.btn.btn-default.btn-primary(type='submit') Submit
+ div.container-fluid
+     div.container#dsc(style="margin-top: 1    5px;")
+         center
+             h3.mt-3(style="color: green;") PlentyFood Givin' happines
+         .row
+             each food in foods
+                 .col-md-4
+                     .card.shadow.mb-4(style='border: solid green;')
+                         .card-header.py-3(style='background-color: green;')
+                             h5.m-0.font-weight-bold(style='text-align: center; color: black;' id=`${food.id}` data-target='#myModal' data-toggle='modal')=food.name
+                         .card-body
+                             .row(style='text-align: center;')
+                                 .col-lg-12
+                                     h5=`Type:-${food.food_type}`
+                                     h5=`Exprire in:-${food.expire_time} Hours`
+                                     h5=`Food for ${food.no_of_person} persons`
+                                     h5=`Area ${food.area}`
+                                     a.btn.btn-primary(href="" id=`token`  data-target="#AddToken" data-toggle="modal") Token  
+                                     a#delete.btn.btn-danger(href=`/deletefood/${food.id}` style="margin-left: 4px;") Delete 
+     .modal.fade(id='' role='dialog')
+         .modal-dialog
+             .modal-content
+                 .modal-header
+                     h4.modal-title Add Token Here
+                     button.close(type='button' data-dismiss='modal') &times;
+                 .modal-body
+                     form
+                         .input-group
+                             label.label(style='margin-right: 10%;') Add Token Here   
+                             input.input--style-4(type='text' name='token' required='')
+                         button.close(type='button' data-dismiss='modal') &times;
+                 .modal-footer
+                     button.btn.btn-default(type='button' data-dismiss='modal') Close
+     .container
+         #AddToken.modal.fade(tabindex='-1' role='dialog' aria-labelledby='AddToken' aria-hidden='true')
+             .modal-dialog(role='document')
+                 .modal-content
+                     .container(style='margin-top: a;')
+                         .row
+                             .col-lg-12.col-md-12.col-sm-12
+                                 h2.text-primary.text-center Add Token
+                                 form.form-horizontal(method='POST' action='/action_page.php')
+                                     .form-group
+                                         label.control-label.col-sm-4(for='token') Add Token Here:
+                                             span.required(style='color: tomato;') *
+                                         .col-sm-10
+                                             input#tokennumber.form-control(type='number' placeholder='EnterToken Here' name='foodName' required='')
+                                     .form-group
+                                         .col-sm-offset-2.col-sm-10
+                                             button#submittoken.btn.btn-default.btn-primary(type='submit') Submit

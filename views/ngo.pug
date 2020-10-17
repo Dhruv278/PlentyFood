@@ -1,0 +1,66 @@
+extends main
+
+block content
+ .page-wrapper.bg-gra-02.p-t-130.p-b-100.font-poppins
+     .wrapper.wrapper--w680
+         .card.card-4
+             .card-body
+                 h2.title Registration Form
+                 form#ngoform
+                     .input-group
+                         label.label Organisation Name
+                         .rs-select2.js-select-simple.select--no-search
+                             .input-group
+                                 input#name.input--style-4(type='text')
+                     .input-group
+                         label.label Managing Person Name 
+                         .rs-select2.js-select-simple.select--no-search
+                             .input-group
+                                 input#mname.input--style-4(type='text' )
+                     .row.row-space
+                         .col-2
+                             .input-group
+                                 label.label password
+                                 input#password.input--style-4(type='password' name='pwd' required='')
+                             .input-group
+                                 label.label Confirm Password
+                                 input#confirm_passowrd.input--style-4(type='password' name='pwd' required='')      
+                         .col-2
+                             .input-group
+                                 label.label Number of Persons in NGO
+                                 input#noofperson.input--style-4(type='number' name='pwd' required='')
+                           
+                     .row.row-space
+                         .col-2
+                             .input-group
+                                 label.label Email
+                                 input#email.input--style-4(type='email' name='email' required='')
+                         .col-2
+                             .input-group
+                                 label.label Phone Number
+                                 input#mobile_no.input--style-4(type='number' name='phone' required='')
+                     .input-group
+                         label.label Address
+                         .rs-select2.js-select-simple.select--no-search
+                             .input-group
+                                 input#address.input--style-4(type='text' name='phone' required='')
+                     .row.row-space
+                         .col-2
+                             .input-group
+                                 label.label Area
+                                 input#area.input--style-4(type='text' name='area' required='')
+                         .col-2
+                             .input-group
+                                 label.label Pin Code 
+                                 input#pincode.input--style-4(type='number' name='pcode' required='')
+                     .input-group
+                         label.label Manual verification will be done on given address.
+                     .p-t-15
+                         button#submit.btn.btn--radius-2.btn--blue(type='submit') Submit
+             .card-footer
+                 center
+                     h4
+                         a(href='/loginpage') Login
+                 center
+                     h4
+                         a(href='/') Back to Home

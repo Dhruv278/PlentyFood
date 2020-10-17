@@ -1,0 +1,41 @@
+extends main
+
+block content
+ .page-wrapper.bg-gra-02.p-t-130.p-b-100.font-poppins
+     .wrapper.wrapper--w680
+         .card.card-4
+             .card-body
+                 h2.title Login Form
+                 form#login
+                     .row.row-space
+                         .col-2
+                             .input-group
+                                 label.label Email
+                                 input#emaillogin.input--style-4(type='email' name='email' required='')
+                         .col-2
+                             .input-group
+                                 label.label password
+                                 input#passwordlogin.input--style-4(type='password' name='pwd' required='')
+                     .row.row-space
+                         .col-12
+                             .input-group
+                                 label.label Role
+                                 .p-t-10
+                                     label.radio-container.m-r-45 Doner
+                                         input#donorlogin(type='radio' checked='checked' name='role')
+                                         span.checkmark
+                                     label.radio-container Receiver   
+                                         input#receiverlogin(type='radio' name='role')
+                                         span.checkmark
+                                     label.radio-container NGO
+                                         input#ngologin(type='radio' checked='checked' name='role')
+                                         span.checkmark
+                     .p-t-15
+                         button#submitLogin.btn.btn--radius-2.btn--blue Submit
+             .card-footer
+                 center
+                     h4 
+                         a( href="/signuppage" ) Register
+                 center
+                     h4 
+                         a(href="/") Back to Home
