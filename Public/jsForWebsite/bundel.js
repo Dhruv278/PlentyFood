@@ -8763,7 +8763,7 @@ var login = /*#__PURE__*/function () {
             _context.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: 'http://127.0.0.1:3000/login',
+              url: '/login',
               data: user
             });
 
@@ -8825,7 +8825,7 @@ var register = /*#__PURE__*/function () {
             _context2.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: 'http://127.0.0.1:3000/register',
+              url: '/register',
               data: user
             });
 
@@ -8874,7 +8874,7 @@ var addFood = /*#__PURE__*/function () {
             _context3.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: "http://127.0.0.1:3000/addfood/".concat(id),
+              url: "/addfood/".concat(id),
               data: food
             });
 
@@ -8921,7 +8921,7 @@ var sendtoken = /*#__PURE__*/function () {
             _context4.next = 4;
             return (0, _axios.default)({
               method: 'POST',
-              url: "http://127.0.0.1:3000/Checktoken/".concat(id),
+              url: "/Checktoken/".concat(id),
               data: {
                 token: token
               }
@@ -8974,7 +8974,7 @@ if (document.getElementById('pincodeForm')) {
     var pincode = document.getElementById('pincodefeild').value;
     console.log(window.location.href);
     window.setTimeout(function () {
-      location.assign("http://127.0.0.1:3000/dsahbord/".concat(pincode));
+      location.assign("/dsahbord/".concat(pincode));
     }, 0);
   });
 }
@@ -9006,7 +9006,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59656" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56959" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
