@@ -34,6 +34,7 @@ app.get('/dsahbord/receiver/:receiverid',foodcontroller.getallfood)
 app.get('/dsahbord/receiver/:receiverid/:pincode',foodcontroller.getFoodbyPincode)
 app.get('/dsahbord/ngo/:ngoid',foodcontroller.getallfoodForNgo)
 app.get('/dsahbord/:pincode',foodcontroller.getFoodbyPincode)
+app.get('/dsahbord',foodcontroller.getallfood)
 app.post('/register',usercontroller.adduser);
 
 app.post('/addfood/:donorid',foodcontroller.createFood);

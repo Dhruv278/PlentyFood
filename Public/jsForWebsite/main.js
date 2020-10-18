@@ -104,7 +104,7 @@ const login = async (user) => {
     try {
         const res = await axios({
             method: 'POST',
-            url: 'http://127.0.0.1:3000/login',
+            url: '/login',
             data: user
         })
         // http://127.0.0.1:3000
@@ -140,7 +140,7 @@ const register = async (user) => {
     try {
         const res = await axios({
             method: 'POST',
-            url: 'http://127.0.0.1:3000/register',
+            url: '/register',
             data: user
         })
         // http://127.0.0.1:3000
@@ -160,7 +160,7 @@ const addFood = async (food,id) => {
     try {
         const res = await axios({
             method: 'POST',
-            url: `http://127.0.0.1:3000/addfood/${id}`,
+            url: `/addfood/${id}`,
             data: food
         })
         // http://127.0.0.1:3000
@@ -178,7 +178,7 @@ const sendtoken = async (id,token) => {
         console.log(id,token)
         const res = await axios({
             method: 'POST',
-            url: `http://127.0.0.1:3000/Checktoken/${id}`,
+            url: `/Checktoken/${id}`,
             data: {
                 token,
             }
@@ -210,7 +210,7 @@ if(document.getElementById('pincodeForm')){
         const pincode = document.getElementById('pincodefeild').value;
         console.log(window.location.href);
         window.setTimeout(() => {
-            location.assign(`http://127.0.0.1:3000/dsahbord/${pincode}`);
+            location.assign(`/dsahbord/${pincode}`);
         }, 0)
         
     })

@@ -41,10 +41,10 @@ block content
                          li.nav-item(style="margin-right: 8pt;")
                              a.nav-link(href="contact.html") Contact
                      ul.nav.navbar-nav.navbar-right
-                         form#pincodeForm
-                             input#pincodefeild(type="number" name="Pincode" placeholder="Pincode" style="margin-left: 3px; margin-right: 1px;")
-                             button#submitPincode(name="Search" placeholder="Search") Search &nbsp
- div.container-fluid
+                         form#pincodeForm.d-flex.display-inline
+                             input#pincodefeild.form-control(type="number" name="Pincode" placeholder="Pincode" style="padding-right: 10px;")
+                             button#submitPincode.btn.btn-primary(name="Search" placeholder="Search" style="margin-left: 20px;") Search 
+ div.container-fluid(style="background-color: whitesmoke;")
      div.container(id="dsc" style="margin-top: 1    5px;")
          center
              h3.mt-3( style="color: green;") PlentyFood Givin' happines
@@ -56,12 +56,16 @@ block content
                             .card-header.py-3(style="background-color: green;")
                                 h5.m-0.font-weight-bold(style="text-align: center; color: black;" data-target="#myModal" data-toggle="modal")=`Name:- ${food.name}`
                             .card-body
-                                .row(style="text-align: center;")
-                                    .col-lg-12
-                                        h5=`Type :- ${food.food_type}`
-                                        h5=`Exipre In ${food.expire_time}`
-                                        h5=`Number of Persons${food.no_of_person}`
-                                        h5=`Area :- ${food.area}/${food.pincode}`
+                                 .row(style="text-align: center;")
+                                     .col-lg-12
+                                         h5=`Type :- ${food.food_type}`
+                                         h5=`Exipre In ${food.expire_time} Hours`
+                                         h5=`Number of Persons :-${food.no_of_person}`
+                                         sh5=`Area :- ${food.area}/${food.pincode}`
+                            .card-footer.text-muted(style="text-align: center;")=`${food.donor_id.first_name} ${food.donor_id.last_name}`
+                                 - if(food.donor_id.score >=3)
+                                     img(src="/img/verify.png" alt=""  width="15%" style="margin-top:-6px ;")
+                        
                     #myModal.modal.fade(role="dialog")
                         .modal-dialog
                             .modal-content
