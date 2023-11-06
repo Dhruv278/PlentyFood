@@ -189,9 +189,10 @@ exports.checkTokenExpire = async () => {
 
     const sendmailToreceiever=async(req,food,foodid)=>{
       const receivers=await Receiver.find({area:food.area});
-         
+         console.log(receivers)
+         console.log("sdadas")
       receivers.forEach(async(receiver)=>{
-          await  new Email(food,`${req.protocol}://${req.get('host')}/food/${'receiver'}/${receiver.id}/${foodid}`,food.name).welcomeMail()
+          await  new Email(receiver,`${req.protocol}://${req.get('host')}/food/${'receiver'}/${receiver.id}/${foodid}`,food.name).welcomeMail()
 
       })
 
